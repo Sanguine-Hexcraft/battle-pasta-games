@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   ],
 
   app: {
+    baseURL: '/battle-pasta-games/',
     head: {
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
