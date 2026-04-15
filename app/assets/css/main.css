@@ -1,1 +1,95 @@
 @import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-void:       #080808;   /* page background */
+  --color-surface:    #10101a;   /* card / panel background */
+  --color-surface-2:  #1a1a28;   /* elevated surface */
+  --color-rim:        #2d2d44;   /* border / divider */
+
+  --color-gold:       #f0b429;   /* primary accent — BOI gold */
+  --color-gold-dim:   #a87a18;   /* muted gold for hover states */
+  --color-neon:       #ff3d6b;   /* hot pink neon accent */
+  --color-neon-cyan:  #00e5cc;   /* secondary neon */
+  --color-blood:      #cc2222;   /* danger / HP */
+
+  --color-text:       #d4d4e0;   /* body copy */
+  --color-muted:      #5a5a72;   /* de-emphasized text */
+  --color-ink:        #080808;   /* text on light/gold backgrounds */
+
+  /* Typography */
+  --font-heading: 'Press Start 2P', monospace;
+  --font-body:    'Inter', sans-serif;
+
+  /* Spacing extras */
+  --spacing-px2: 2px;
+
+  /* Border radius — mostly sharp for pixel feel */
+  --radius-none: 0px;
+  --radius-sm:   2px;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background-color: var(--color-void);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.6; /* Press Start 2P needs extra line-height */
+  }
+
+  /* Pixel-crisp rendering for sprite/pixel-art images */
+  img.pixel {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Chunky pixel border — 3px solid with a 1px inset shadow for depth */
+  .border-chunky {
+    border: 3px solid var(--color-rim);
+    box-shadow: inset 0 0 0 1px #ffffff08;
+  }
+
+  .border-chunky-gold {
+    border: 3px solid var(--color-gold);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--color-gold) 40%, transparent);
+  }
+
+  .border-chunky-neon {
+    border: 3px solid var(--color-neon);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--color-neon) 40%, transparent);
+  }
+
+  /* Glow text helpers */
+  .text-glow-gold {
+    text-shadow: 0 0 12px color-mix(in srgb, var(--color-gold) 60%, transparent);
+  }
+
+  .text-glow-neon {
+    text-shadow: 0 0 12px color-mix(in srgb, var(--color-neon) 60%, transparent);
+  }
+
+  /* Scanline overlay — apply to a relative container */
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      #00000018 2px,
+      #00000018 4px
+    );
+    pointer-events: none;
+  }
+}
