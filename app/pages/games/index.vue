@@ -1,10 +1,12 @@
 <template>
   <section class="max-w-6xl mx-auto px-6 py-24">
-    <p class="font-heading text-xs text-muted tracking-widest uppercase mb-12">Games</p>
+    <p class="font-heading text-xs text-gold mb-12 tracking-widest">
+      <span class="text-muted">[ </span>Games<span class="text-muted"> ]</span>
+    </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <NuxtLink v-for="game in games" :key="game._path" :to="game._path"
-        class="group border-chunky p-6 flex flex-col gap-5 hover:border-gold transition-all bg-surface">
+        class="group card-hover corner-brackets border-chunky p-6 flex flex-col gap-5 bg-surface">
 
         <!-- Cover -->
         <div class="aspect-video bg-surface-2 border-chunky overflow-hidden flex items-center justify-center">

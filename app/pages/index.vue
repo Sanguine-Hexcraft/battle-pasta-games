@@ -1,37 +1,47 @@
 <template>
   <!-- ── Hero ─────────────────────────────────────────────────────────── -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center gap-8 px-6 scanlines overflow-hidden">
-    <p class="font-heading text-xs text-muted tracking-widest uppercase">Indie Game Studio</p>
+  <section class="relative min-h-screen flex flex-col items-center justify-center gap-8 px-6 scanlines pixel-grid overflow-hidden">
 
-    <h1 class="font-heading text-3xl text-gold text-glow-gold text-center leading-loose">
-      Battle Pasta<br />Games
-    </h1>
+    <!-- vignette -->
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_#080808_100%)] z-[2]"></div>
 
-    <p class="font-body text-base text-text max-w-md text-center leading-relaxed">
-      Dark, weird, handcrafted games. Inspired by the deep cuts — built with love and spite.
-    </p>
+    <div class="relative z-[3] flex flex-col items-center gap-8">
+      <p class="font-heading text-xs text-muted tracking-widest uppercase flicker">
+        [ Indie Game Studio ]
+      </p>
 
-    <div class="flex gap-4 mt-4">
-      <NuxtLink to="/games"
-        class="font-heading text-xs text-ink bg-gold px-6 py-3 border-chunky-gold hover:brightness-110 transition-all">
-        Explore Games
-      </NuxtLink>
-      <NuxtLink to="/devlog"
-        class="font-heading text-xs text-gold px-6 py-3 border-chunky hover:border-gold transition-all">
-        Read Devlog
-      </NuxtLink>
+      <h1 class="font-heading text-4xl md:text-5xl text-gold text-glow-gold text-glitch text-center leading-loose cursor-blink">
+        Battle Pasta<br />Games
+      </h1>
+
+      <p class="font-body text-base text-text max-w-md text-center leading-relaxed">
+        Dark, weird, handcrafted games. Inspired by the deep cuts — built with love and spite.
+      </p>
+
+      <div class="flex gap-6 mt-2">
+        <NuxtLink to="/games"
+          class="btn-pixel font-heading text-xs text-ink bg-gold px-6 py-3 border-chunky-gold">
+          Explore Games
+        </NuxtLink>
+        <NuxtLink to="/devlog"
+          class="btn-pixel-ghost font-heading text-xs text-muted px-6 py-3 border-chunky">
+          Read Devlog
+        </NuxtLink>
+      </div>
     </div>
   </section>
 
   <!-- ── Featured Game ──────────────────────────────────────────────── -->
   <section class="bg-surface py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <p class="font-heading text-xs text-muted mb-10 tracking-widest uppercase">Featured Game</p>
+      <p class="font-heading text-xs text-gold mb-10 tracking-widest">
+        <span class="text-muted">[ </span>Featured Game<span class="text-muted"> ]</span>
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-chunky p-8">
+      <div class="card-hover corner-brackets border-chunky bg-surface grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8">
 
         <!-- Art placeholder -->
-        <div class="aspect-video bg-surface-2 border-chunky flex items-center justify-center">
+        <div class="aspect-video bg-surface-2 border-chunky flex items-center justify-center overflow-hidden">
           <span class="font-heading text-xs text-muted">[ Game Art ]</span>
         </div>
 
@@ -51,7 +61,7 @@
           </p>
 
           <NuxtLink to="/games/placeholder"
-            class="font-heading text-xs text-gold hover:text-glow-gold transition-all self-start">
+            class="font-heading text-xs text-gold hover:text-glow-gold transition-all self-start nav-arrow">
             View Game →
           </NuxtLink>
         </div>
@@ -64,13 +74,15 @@
   <section class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-baseline justify-between mb-10">
-        <p class="font-heading text-xs text-muted tracking-widest uppercase">Latest Devlog</p>
+        <p class="font-heading text-xs text-gold tracking-widest">
+          <span class="text-muted">[ </span>Latest Devlog<span class="text-muted"> ]</span>
+        </p>
         <NuxtLink to="/devlog" class="font-heading text-xs text-muted hover:text-gold transition-colors">
           All Posts →
         </NuxtLink>
       </div>
 
-      <div class="border-chunky p-8 flex flex-col gap-6 max-w-2xl">
+      <div class="card-hover corner-brackets-neon border-chunky p-8 flex flex-col gap-6 max-w-2xl bg-surface">
         <div class="flex items-center gap-4">
           <span class="font-heading text-xs text-neon">Devlog #1</span>
           <span class="font-body text-xs text-muted">April 15, 2026</span>
